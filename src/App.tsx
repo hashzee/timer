@@ -11,30 +11,31 @@ const alarmMp3 = require("./Sounds/alarm.mp3");
 
 function App() {
   const tickSound = new UIfx(tickMp3);
-  const alarmSound = new UIfx(alarmMp3);
+  
   const [isOn, setIsOn] = useState(false);
   const [seconds, setSeconds] = useState(0);
 
   useEffect(() => {
+    const alarmSound = new UIfx(alarmMp3);
+    const tickSound2 = new UIfx(tickMp3);
     if (isOn) {
-      var theInterval = setInterval(() => runTimer(), 1000);
+      var theInterval = setInterval(() => {
+        if (seconds > 0) {
+          tickSound2.play();
+          setSeconds(seconds - 1);
+        }
+        if (seconds === 0) {
+          alarmSound.play();
+          setIsOn(false);
+          setSeconds(0);
+        }
+      }, 1000);
       return function cleanup() {
         clearInterval(theInterval);
       };       
     }
   }, [seconds, isOn])
 
-  const runTimer = () => {
-
-    if (seconds > 0) {
-      tickSound.play();
-      setSeconds(seconds - 1);
-    }
-    if (seconds === 0) {
-      alarmSound.play();
-      resetTimer();
-    }
-  }
 
   const startTimer = () => {
     if (isOn === true) {
