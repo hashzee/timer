@@ -26,6 +26,9 @@ body{
 }
 
 
+
+
+
 .Timer {
 
 	width: 300px;
@@ -97,20 +100,24 @@ body{
 }
 
 .buttonContainer{
-	margin-top: 30px;
-	display: block;
+	margin-top: 20px;
+	display: flex;
 	text-align: center;
+	color: white;
+	opacity: 0.5;
+	flex-direction: column;	
 }
 
 .buttonContainer select{
 	padding:3px;
 	margin:5px;
 	width: 200px;
-	font-size: 28px;
+	font-size: 20px;
 	background-color: transparent;
 	border:0px;
 	color:white;
 	opacity: 0.5;
+	padding-left:80px;
 	-webkit-appearance: none;
 	text-align-last: center; text-align: center;
 	-ms-text-align-last: center;
@@ -160,3 +167,28 @@ body{
 .nav__icon {
     font-size: 14px;
 }
+
+
+@media only screen and (max-height: 450px) {
+	.App {
+		height: 100vh;
+		flex-direction: row;
+	}
+
+	.App h1{
+		display:none;
+	}
+
+	.buttonContainer{
+		margin-left:50px ;
+	}
+	.buttonContainer select{
+		padding-left: 100px;
+		font-size: 20px;
+	}
+
+	.nav{
+		display: none;
+	}
+	
+  }

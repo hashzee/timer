@@ -81,10 +81,10 @@ function App() {
         <TimerHand seconds={seconds} />
       </div>
 
-        <TimerDigitsDisplay />
-
-
+    
       <div className='buttonContainer'>
+        <TimerDigitsDisplay seconds={seconds}/>
+        <div><small>Please select seconds below, then start the timer.</small></div>
         <select onChange={e => { handleSecondChange(e) }}>
          <option value={0}>- Seconds -</option>
           {options.map((opt: number, index: number) => (<option key={index} value={opt}>{opt} Seconds</option>))}
