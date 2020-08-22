@@ -3,6 +3,7 @@ import UIfx from 'uifx';
 import './App.css';
 
 import TimerHand from './Components/TimerHand/TimerHand';
+import TimerSmallHand from './Components/TimerSmallHand/TimerSmallHand';
 import Bottom from './Components/Bottom/Bottom';
 import TimerDigitsDisplay from './Components/TimerDigitsDisplay/TimerDigitsDisplay';
 
@@ -79,6 +80,7 @@ function App() {
         <div className='invStopButton' onClick={() => stopTimer()} />
         <div className='invResetButton' onClick={() => resetTimer()} />
         <TimerHand seconds={seconds} />
+        <TimerSmallHand seconds={seconds} />
       </div>
 
     
